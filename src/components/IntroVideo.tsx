@@ -34,7 +34,8 @@ export default function IntroVideo() {
   const sectionHeader  = iv?.sectionHeader  ?? 'EXECUTIVE BRIEF';
   const sectionTitle   = iv?.sectionTitle   ?? 'See How We Build Attention.';
   const description    = iv?.description    ?? 'We bypass traditional advertising hurdles. By introducing a rigid pipeline of custom content strategy, high-fidelity video editing, brand positioning elements, and automatic organic distribution systems, we scale user authority organically.';
-  const playButtonText = iv?.playButtonText ?? 'Launch Cinematic Reel';
+  const bs = typeof window !== 'undefined' ? window.wpData?.buttonSettings : undefined;
+  const playButtonText = bs?.introVideoPlayText || 'Launch Cinematic Reel';
   const duration       = iv?.duration       ?? '1 min 24 sec';
   const floatingNodes  = iv?.floatingNodes  ?? [];
 
@@ -157,7 +158,7 @@ export default function IntroVideo() {
 
               {/* Blurred preview background */}
               <img
-                src="/src/assets/images/brandjo_hero_bg_1779378368447.png"
+                src={`${typeof window !== 'undefined' && window.wpData?.themeUri ? window.wpData.themeUri : ''}/assets/images/brandjo_hero_bg_1779378368447.png`}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:scale-105 transition-transform duration-1000"
                 referrerPolicy="no-referrer"

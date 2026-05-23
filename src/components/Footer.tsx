@@ -1,5 +1,6 @@
 import React from "react";
 import { Twitter, Instagram, Linkedin, Youtube, Mail, MapPin, ArrowUp } from "lucide-react";
+import flowUpLogo from "../assets/images/flow-up-logo.png";
 import { Reveal } from "./MotionPrimitives";
 
 const socialIconMap: Record<string, React.ElementType> = { linkedin: Linkedin, twitter: Twitter, instagram: Instagram, youtube: Youtube };
@@ -135,20 +136,14 @@ export default function Footer() {
               aria-label="Open Flow Up website"
             >
               <img
-                src="/src/assets/images/flow-up-logo.png"
+                src={flowUpLogo}
                 alt="Flow Up"
                 className="h-7 w-auto object-contain"
               />
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-5">
-            <a href="#home" className="hover:text-white transition-colors">
-              Privacy
-            </a>
-            <a href="#home" className="hover:text-white transition-colors">
-              Terms
-            </a>
+          <div className="flex flex-wrap items-center justify-center">
             <button
               type="button"
               onClick={handleScrollToTop}

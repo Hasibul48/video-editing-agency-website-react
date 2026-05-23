@@ -22,7 +22,7 @@ export default function FinalCTA({ onBookCallClick }: FinalCTAProps) {
       {/* Background Graphic elements mimicking luxury light sweeps and cinematic haze */}
       <div className="absolute inset-0 z-0">
         <motion.img
-          src="/src/assets/images/brandjo_hero_bg_1779378368447.png" 
+          src={`${wd?.themeUri ?? ''}/assets/images/brandjo_hero_bg_1779378368447.png`}
           alt="Cinematic background flare" 
           className="w-full h-full object-cover opacity-15"
           referrerPolicy="no-referrer"

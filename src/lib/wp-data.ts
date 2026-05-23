@@ -38,3 +38,7 @@ export function faqItems(): FAQItem[] {
 export function timelineItems(): TimelineEvent[] {
   return wd()?.timeline?.items ?? TIMELINE_DATA;
 }
+
+export function getThemeUri(): string {
+  return wd()?.themeUri ?? '';
+}

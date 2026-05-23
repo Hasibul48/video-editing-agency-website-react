@@ -22,6 +22,8 @@ export default function Navbar({ onBookCallClick }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const bookCallText = (typeof window !== 'undefined' && window.wpData?.buttonSettings?.navbarBookCallText) || 'Book a Call';
+
   const navLinks = (typeof window !== 'undefined' && window.wpData?.navLinks) || [
     { name: "Home", href: "#home" },
     { name: "Services", href: "#services" },
@@ -76,7 +78,7 @@ export default function Navbar({ onBookCallClick }: NavbarProps) {
                 onClick={() => onBookCallClick?.()}
                 className="w-full sm:w-auto px-5 py-2 bg-brand-purple hover:bg-brand-purple/90 text-white font-semibold text-sm rounded-xl transition-all shadow-lg shadow-brand-purple/30 hover:shadow-brand-purple/60 hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
               >
-                Book a Call
+                {bookCallText}
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -121,7 +123,7 @@ export default function Navbar({ onBookCallClick }: NavbarProps) {
                 className="w-full max-w-[200px] py-2.5 px-4 rounded-lg bg-brand-purple hover:bg-brand-purple/90 text-white font-medium text-sm transition-all text-center flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-brand-purple/30 hover:shadow-brand-purple/60 hover:-translate-y-0.5"
               >
                 <Sparkles className="w-4 h-4" />
-                Book a Call
+                {bookCallText}
               </button>
             </div>
           </motion.div>

@@ -146,6 +146,23 @@ export interface WpData {
     dates: { value: string; display: string }[];
     times: string[];
   };
+  buttonSettings?: {
+    navbarBookCallText: string;
+    navbarBookCallUrl: string;
+    heroCtaPrimaryText: string;
+    heroCtaPrimaryUrl: string;
+    heroCtaSecondaryText: string;
+    heroCtaSecondaryUrl: string;
+    heroScrollText: string;
+    heroScrollUrl: string;
+    introVideoPlayText: string;
+    projectsWatchLabel: string;
+    finalCtaButtonText: string;
+    finalCtaButtonUrl: string;
+    finalCtaLimitText: string;
+    faqSupportCtaText: string;
+    faqSupportCtaUrl: string;
+  };
 }
 
 declare global {

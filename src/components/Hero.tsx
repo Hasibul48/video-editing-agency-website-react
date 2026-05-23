@@ -89,8 +89,9 @@ function parseStatValue(value: string): { end: number; suffix: string; decimals:
 const statIcons = [TrendingUp, Sparkles, Star];
 
 export default function Hero({ onBookCallClick }: HeroProps) {
-  const heroBgPath = "/src/assets/images/brandjo_hero_bg_1779378368447.png";
   const wd = typeof window !== 'undefined' ? window.wpData : undefined;
+  const themeUri = wd?.themeUri ?? '';
+  const heroBgPath = themeUri ? `${themeUri}/assets/images/brandjo_hero_bg_1779378368447.png` : "/src/assets/images/brandjo_hero_bg_1779378368447.png";
   const hero = wd?.hero;
 
   const headline    = hero?.headline    ?? 'Content That Makes Brands';
@@ -98,6 +99,9 @@ export default function Hero({ onBookCallClick }: HeroProps) {
   const ctaPrimary  = hero?.ctaPrimary  ?? 'Start Your Brand';
   const ctaSecondary= hero?.ctaSecondary ?? 'View Projects';
   const scrollText  = hero?.scrollText  ?? 'DISCOVER THE MOVEMENT';
+  const bs = typeof window !== 'undefined' ? window.wpData?.buttonSettings : undefined;
+  const ctaSecondaryUrl = bs?.heroCtaSecondaryUrl || '#projects';
+  const scrollUrl = bs?.heroScrollUrl || '#video-reel';
   const stats       = hero?.stats ?? [
     { value: '120M+', label: 'Views Generated', description: 'Through strategic, high-retention cinematic concepts.' },
     { value: '50+',   label: 'Brands Scaled',   description: 'Enterprise SaaS, luxury fashion, and elite personal networks.' },
@@ -172,7 +176,7 @@ export default function Hero({ onBookCallClick }: HeroProps) {
           </button>
           
           <a
-            href="#projects"
+            href={ctaSecondaryUrl}
             className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 text-white font-semibold text-base rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
           >
             {ctaSecondary}
@@ -209,7 +213,7 @@ export default function Hero({ onBookCallClick }: HeroProps) {
         {/* Scroll down mouse indicator */}
         <motion.div variants={fadeUp} className="mt-16 flex justify-center">
           <a 
-            href="#video-reel" 
+            href={scrollUrl} 
             className="flex flex-col items-center gap-2 text-xs text-zinc-500 hover:text-white transition-colors"
           >
             <span>{scrollText}</span>

@@ -55,6 +55,8 @@ const projects: ProjectItem[] = [
   },
 ];
 
+const watchLabel = (typeof window !== 'undefined' && window.wpData?.buttonSettings?.projectsWatchLabel) || 'Watch the Project';
+
 export default function Projects() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeProject = projects.find((p) => p.id === activeId) ?? null;
@@ -131,7 +133,7 @@ export default function Projects() {
 
                 {/* Hover text label bottom-left */}
                 <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur text-[10px] uppercase tracking-widest text-brand-glow font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Watch the Project
+                  {watchLabel}
                 </div>
               </div>
 

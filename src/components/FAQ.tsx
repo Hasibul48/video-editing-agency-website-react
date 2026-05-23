@@ -13,6 +13,7 @@ export default function FAQ() {
   const supportCallout = f?.supportCallout ?? 'Have other proprietary questions?';
   const supportSubtext = f?.supportSubtext ?? 'Our executive partners are active in managing corporate inquiry streams.';
   const supportCta     = f?.supportCta     ?? 'Ask Executive Team';
+  const supportCtaUrl  = (typeof window !== 'undefined' && window.wpData?.buttonSettings?.faqSupportCtaUrl) || '#contact';
 
   const [openId, setOpenId] = useState<string | null>(null);
 
@@ -108,7 +109,7 @@ export default function FAQ() {
             </div>
           </div>
           <a
-            href="#contact"
+            href={supportCtaUrl}
             className="py-2 px-4 rounded bg-white/5 border border-white/10 hover:border-brand-purple text-xs font-semibold text-white hover:bg-white/10 transition-all cursor-pointer"
           >
             {supportCta}
