@@ -78,6 +78,7 @@ export interface WpData {
   navLinks: { name: string; href: string }[];
   hero: {
     headline: string;
+    headlineHighlight: string;
     subheadline: string;
     ctaPrimary: string;
     ctaSecondary: string;

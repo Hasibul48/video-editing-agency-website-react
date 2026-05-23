@@ -156,6 +156,7 @@ function brandjo_import_default_acf_data() {
     // -- Hero --
     update_field('hero', [
         'headline' => 'Content That Makes Brands',
+        'headline_highlight' => 'Impossible to Ignore.',
         'subheadline' => 'We help premium brands grow scaling attention through cinematic content, high-value strategic storytelling, and performance-driven growth marketing systems.',
         'cta_primary' => 'Start Your Brand',
         'cta_secondary' => 'View Projects',
@@ -577,6 +578,7 @@ function brandjo_get_wp_data_json() {
     if (!empty($hero)) {
         $data['hero'] = [
             'headline' => $hero['headline'] ?? 'Content That Makes Brands',
+            'headlineHighlight' => $hero['headline_highlight'] ?? 'Impossible to Ignore.',
             'subheadline' => $hero['subheadline'] ?? '',
             'ctaPrimary' => $hero['cta_primary'] ?? 'Start Your Brand',
             'ctaSecondary' => $hero['cta_secondary'] ?? 'View Projects',

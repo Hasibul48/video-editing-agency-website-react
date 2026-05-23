@@ -94,8 +94,9 @@ export default function Hero({ onBookCallClick }: HeroProps) {
   const heroBgPath = themeUri ? `${themeUri}/assets/images/brandjo_hero_bg_1779378368447.png` : "/src/assets/images/brandjo_hero_bg_1779378368447.png";
   const hero = wd?.hero;
 
-  const headline    = hero?.headline    ?? 'Content That Makes Brands';
-  const subheadline = hero?.subheadline ?? 'We help premium brands grow scaling attention through cinematic content, high-value strategic storytelling, and performance-driven growth marketing systems.';
+  const headline           = hero?.headline           ?? 'Content That Makes Brands';
+  const headlineHighlight  = hero?.headlineHighlight  ?? 'Impossible to Ignore.';
+  const subheadline        = hero?.subheadline        ?? 'We help premium brands grow scaling attention through cinematic content, high-value strategic storytelling, and performance-driven growth marketing systems.';
   const ctaPrimary  = hero?.ctaPrimary  ?? 'Start Your Brand';
   const ctaSecondary= hero?.ctaSecondary ?? 'View Projects';
   const scrollText  = hero?.scrollText  ?? 'DISCOVER THE MOVEMENT';
@@ -156,7 +157,7 @@ export default function Hero({ onBookCallClick }: HeroProps) {
         {/* Large Bold Headline */}
         <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.05] mb-6">
           {headline} <br className="hidden md:inline" />
-          <span className="text-gradient">Impossible to Ignore.</span>
+          <span className="text-gradient">{headlineHighlight}</span>
         </motion.h1>
 
         {/* Professional Subheadline */}

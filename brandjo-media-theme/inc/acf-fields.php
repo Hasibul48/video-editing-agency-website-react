@@ -148,6 +148,13 @@ acf_add_local_field_group([
                     'default_value' => 'Content That Makes Brands',
                 ],
                 [
+                    'key' => 'brandjo_hero_headline_highlight',
+                    'label' => 'Headline Highlight (gradient text)',
+                    'name' => 'headline_highlight',
+                    'type' => 'text',
+                    'default_value' => 'Impossible to Ignore.',
+                ],
+                [
                     'key' => 'brandjo_hero_subheadline',
                     'label' => 'Subheadline',
                     'name' => 'subheadline',
