@@ -6,6 +6,7 @@ import { Reveal, stagger, fadeUp } from "./MotionPrimitives";
 interface ProjectItem {
   id: string;
   videoId: string;
+  videoFile?: string;
   title: string;
   description: string;
 }
@@ -114,12 +115,18 @@ export default function Projects() {
             >
               {/* Thumbnail */}
               <div className="relative aspect-video overflow-hidden bg-zinc-950">
-                <img
-                  src={`https://img.youtube.com/vi/${project.videoId}/hqdefault.jpg`}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
+                {project.videoFile ? (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-purple/20 to-zinc-950">
+                    <Play className="w-12 h-12 text-white/30" />
+                  </div>
+                ) : (
+                  <img
+                    src={`https://img.youtube.com/vi/${project.videoId}/hqdefault.jpg`}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                )}
 
                 {/* Dark gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/10 to-transparent" />
@@ -193,13 +200,25 @@ export default function Projects() {
 
               {/* Video */}
               <div className="aspect-video w-full bg-black relative">
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${activeProject.videoId}?autoplay=1&rel=0&modestbranding=1`}
-                  title={activeProject.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+                {activeProject.videoFile ? (
+                  <video
+                    className="absolute inset-0 w-full h-full object-contain"
+                    src={activeProject.videoFile}
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="auto"
+                  />
+                ) : (
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${activeProject.videoId}?autoplay=1&rel=0&modestbranding=1`}
+                    title={activeProject.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                )}
               </div>
 
               {/* Bottom info */}

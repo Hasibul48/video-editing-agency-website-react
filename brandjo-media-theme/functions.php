@@ -684,9 +684,11 @@ function brandjo_get_wp_data_json() {
         $items = [];
         if (!empty($projects['items'])) {
             foreach ($projects['items'] as $p) {
+                $videoFile = $p['video_file'] ?? '';
                 $items[] = [
                     'id' => $p['id'] ?? '',
                     'title' => $p['title'] ?? '',
+                    'videoFile' => $videoFile ?: '',
                     'videoId' => $p['video_id'] ?? 'dQw4w9WgXcQ',
                     'description' => $p['description'] ?? '',
                     'category' => $p['category'] ?? '',
@@ -724,10 +726,12 @@ function brandjo_get_wp_data_json() {
         $videos = [];
         if (!empty($reviews['video_testimonials'])) {
             foreach ($reviews['video_testimonials'] as $v) {
+                $videoFile = $v['video_file'] ?? '';
                 $videos[] = [
                     'client' => $v['client'] ?? '',
                     'role' => $v['role'] ?? '',
                     'duration' => $v['duration'] ?? '00:00',
+                    'videoFile' => $videoFile ?: '',
                     'youtubeId' => $v['youtube_id'] ?? 'dQw4w9WgXcQ',
                 ];
             }
@@ -826,10 +830,12 @@ function brandjo_get_wp_data_json() {
                 $youtubeId = $matches[1];
             }
         }
+        $videoFile = $introVideo['video_file'] ?? '';
         $data['introVideo'] = [
             'sectionHeader' => $introVideo['section_header'] ?? 'EXECUTIVE BRIEF',
             'sectionTitle' => $introVideo['section_title'] ?? 'See How We Build Attention.',
             'description' => $introVideo['description'] ?? '',
+            'videoFile' => $videoFile ?: '',
             'youtubeId' => $youtubeId ?: 'fwOnVwdbTFo',
             'playButtonText' => 'Launch Cinematic Reel',
             'duration' => $introVideo['duration'] ?? '1 min 24 sec',

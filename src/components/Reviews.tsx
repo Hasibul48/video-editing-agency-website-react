@@ -14,6 +14,7 @@ interface VideoItem {
   client: string;
   role: string;
   duration: string;
+  videoFile?: string;
   youtubeId: string;
 }
 
@@ -33,7 +34,8 @@ export default function Reviews() {
         client: v.client,
         role: v.role,
         duration: v.duration,
-        youtubeId: (defaultVideos[i] || defaultVideos[0]).youtubeId,
+        videoFile: v.videoFile ?? '',
+        youtubeId: v.youtubeId || (defaultVideos[i] || defaultVideos[0]).youtubeId,
       }))
     : defaultVideos;
 
@@ -127,13 +129,19 @@ export default function Reviews() {
             {videos.map((video, idx) => (
               <SwiperSlide key={idx} className="!w-[260px] sm:!w-[320px] md:!w-[400px]">
                 <div className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-950 border border-white/10 select-none">
-                  <img
-                    src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                    alt={video.client}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    loading="lazy"
-                  />
+                  {video.videoFile ? (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-purple/20 to-zinc-950">
+                      <Play className="w-12 h-12 text-white/30" />
+                    </div>
+                  ) : (
+                    <img
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                      alt={video.client}
+                      className="w-full h-full object-cover"
+                      draggable={false}
+                      loading="lazy"
+                    />
+                  )}
 
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
@@ -274,13 +282,25 @@ export default function Reviews() {
               </div>
 
               <div className="aspect-video w-full bg-black relative">
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${activeVideo.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-                  title={activeVideo.client}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+                {activeVideo.videoFile ? (
+                  <video
+                    className="absolute inset-0 w-full h-full object-contain"
+                    src={activeVideo.videoFile}
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="auto"
+                  />
+                ) : (
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${activeVideo.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                    title={activeVideo.client}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                )}
               </div>
 
               <div className="flex items-center justify-between px-4 py-3 text-[11px] text-zinc-600 font-mono">

@@ -31,6 +31,7 @@ export default function IntroVideo() {
   const wd = typeof window !== 'undefined' ? window.wpData : undefined;
   const iv = wd?.introVideo;
   const youtubeId      = iv?.youtubeId      ?? 'fwOnVwdbTFo';
+  const videoFile      = iv?.videoFile      ?? '';
   const sectionHeader  = iv?.sectionHeader  ?? 'EXECUTIVE BRIEF';
   const sectionTitle   = iv?.sectionTitle   ?? 'See How We Build Attention.';
   const description    = iv?.description    ?? 'We bypass traditional advertising hurdles. By introducing a rigid pipeline of custom content strategy, high-fidelity video editing, brand positioning elements, and automatic organic distribution systems, we scale user authority organically.';
@@ -291,19 +292,18 @@ export default function IntroVideo() {
       <AnimatePresence>
         {isPlayingReel && (
           <motion.div
-            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            animate={{ opacity: 1, backdropFilter: 'blur(24px)' }}
-            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: premiumEase }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90"
-            style={{ WebkitBackdropFilter: 'blur(24px)' }}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 20 }}
               transition={{ duration: 0.5, ease: premiumEase }}
-              className="relative w-full max-w-5xl rounded-2xl overflow-hidden border border-brand-purple/30 shadow-2xl shadow-brand-purple/10 bg-brand-card/95 backdrop-blur-xl p-2"
+              className="relative w-full max-w-5xl rounded-2xl border border-brand-purple/30 shadow-2xl shadow-brand-purple/10 bg-brand-card/95 p-2"
             >
               {/* Close button */}
               <button
@@ -326,13 +326,25 @@ export default function IntroVideo() {
 
               {/* Video container */}
               <div className="aspect-video w-full bg-black rounded-xl overflow-hidden relative">
-                <iframe
-                  className="absolute inset-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
-                  title="Brandjo Media Cinematic Showreel"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+                {videoFile ? (
+                  <video
+                    className="absolute inset-0 w-full h-full object-contain"
+                    src={videoFile}
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="auto"
+                  />
+                ) : (
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                    title="Brandjo Media Cinematic Showreel"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                )}
               </div>
 
               {/* Bottom info bar */}

@@ -14,6 +14,8 @@ export interface Project {
   metrics: string;
   description: string;
   imagePath: string;
+  videoFile?: string;
+  videoId?: string;
 }
 
 export interface Review {
@@ -103,7 +105,7 @@ export interface WpData {
     sectionHeader: string;
     sectionTitle: string;
     items: Review[];
-    videoTestimonials: { client: string; role: string; duration: string; videoUrl: string }[];
+    videoTestimonials: { client: string; role: string; duration: string; videoFile?: string; youtubeId?: string }[];
   };
   pricing: {
     sectionHeader: string;
@@ -138,6 +140,7 @@ export interface WpData {
     description: string;
     playButtonText: string;
     duration: string;
+    videoFile?: string;
     youtubeId: string;
     floatingNodes: string[];
   };
