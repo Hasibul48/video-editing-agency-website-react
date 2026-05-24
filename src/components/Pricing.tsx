@@ -5,10 +5,6 @@ import { pricingTiers } from "../lib/wp-data";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { Reveal, fadeUp, premiumTransition } from "./MotionPrimitives";
 
-interface PricingProps {
-  onBookCallClick?: () => void;
-}
-
 const cardDirections = [
   { x: -80, rotateY: 12 },
   { x: 0, rotateY: 0, scale: 1.06 },
@@ -37,7 +33,7 @@ function useCountUp(end: number, duration = 2000) {
   return { value, ref };
 }
 
-export default function Pricing({ onBookCallClick }: PricingProps) {
+export default function Pricing() {
   const wd = typeof window !== 'undefined' ? window.wpData : undefined;
   const pr = wd?.pricing;
   const sectionHeader = pr?.sectionHeader ?? 'PRICING SYSTEMS';
@@ -246,17 +242,16 @@ export default function Pricing({ onBookCallClick }: PricingProps) {
                 </div>
 
                 {/* Action Button */}
-                <button
-                  type="button"
-                  onClick={() => onBookCallClick?.()}
-                  className={`w-full py-3 px-4 font-semibold text-sm rounded-xl transition-all cursor-pointer text-center ${
+                <a
+                  href="#contact"
+                  className={`w-full py-3 px-4 font-semibold text-sm rounded-xl transition-all cursor-pointer text-center block ${
                     tier.popular
                       ? "bg-brand-purple hover:bg-brand-glow hover:shadow-lg hover:shadow-brand-purple/30 text-white"
                       : "bg-white/5 border border-white/10 hover:border-brand-purple hover:bg-white/10 text-white"
                   }`}
                 >
                   {tier.ctaText}
-                </button>
+                </a>
 
               </motion.div>
             );

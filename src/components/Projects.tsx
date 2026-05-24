@@ -2,63 +2,15 @@ import { useState, useCallback, useEffect } from "react";
 import { Play, X, FolderGit2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Reveal, stagger, fadeUp } from "./MotionPrimitives";
-
-interface ProjectItem {
-  id: string;
-  videoId: string;
-  videoFile?: string;
-  title: string;
-  description: string;
-}
-
-const projects: ProjectItem[] = [
-  {
-    id: "p1",
-    videoId: "dQw4w9WgXcQ",
-    title: "Never Gonna Give You Up",
-    description: "High-energy music video production — color grading, rhythm cutting, and dynamic motion graphics.",
-  },
-  {
-    id: "p2",
-    videoId: "RgKAFK5djSk",
-    title: "See You Again",
-    description: "Cinematic storytelling through seamless transitions, emotional pacing, and atmospheric sound design.",
-  },
-  {
-    id: "p3",
-    videoId: "JGwWNGJdvx8",
-    title: "Shape of You",
-    description: "Abstract visual narrative with stylised overlays, split-screen composition, and branded title sequences.",
-  },
-  {
-    id: "p4",
-    videoId: "hT_nvWreIhg",
-    title: "Counting Stars",
-    description: "Live concert footage edited into a high-impact promotional cut with multi-camera sync.",
-  },
-  {
-    id: "p5",
-    videoId: "OPf0YbXqDm0",
-    title: "Uptown Funk",
-    description: "Retro-inspired commercial edit with frame-perfect beatsync and vibrant colour LUTs.",
-  },
-  {
-    id: "p6",
-    videoId: "CevxZvSJLk8",
-    title: "Roar",
-    description: "Brand empowerment reel combining slow-motion hero shots with typographic kinetic text.",
-  },
-  {
-    id: "p7",
-    videoId: "HP-MbfHFUqs",
-    title: "Shake It Off",
-    description: "Fast-paced social cut designed for vertical platforms — quick jumps, overlay stickers, and bold captions.",
-  },
-];
-
-const watchLabel = (typeof window !== 'undefined' && window.wpData?.buttonSettings?.projectsWatchLabel) || 'Watch the Project';
+import { projectsItems } from "../lib/wp-data";
 
 export default function Projects() {
+  const wd = typeof window !== 'undefined' ? window.wpData : undefined;
+  const sectionHeader = wd?.projects?.sectionHeader ?? 'PORTFOLIO';
+  const sectionTitle = wd?.projects?.sectionTitle ?? 'Projects.';
+  const watchLabel = wd?.buttonSettings?.projectsWatchLabel ?? 'Watch the Project';
+  const projects = projectsItems();
+
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeProject = projects.find((p) => p.id === activeId) ?? null;
 
@@ -87,14 +39,11 @@ export default function Projects() {
         <Reveal className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-brand-purple tracking-widest font-semibold uppercase mb-4">
             <FolderGit2 className="w-3.5 h-3.5" />
-            <span>PORTFOLIO</span>
+            <span>{sectionHeader}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight mb-4">
-            Projects.
+            {sectionTitle}
           </h2>
-          <p className="text-sm sm:text-base text-zinc-500 leading-relaxed max-w-lg mx-auto">
-            A selection of recent edits we crafted for artists, brands, and creators.
-          </p>
         </Reveal>
 
         {/* Grid */}

@@ -3,10 +3,6 @@ import { ArrowRight, Sparkles, TrendingUp, Star, ChevronDown } from "lucide-reac
 import { motion } from "motion/react";
 import { PremiumCard, Stagger, fadeUp, premiumTransition, softScale } from "./MotionPrimitives";
 
-interface HeroProps {
-  onBookCallClick?: () => void;
-}
-
 interface CountUpValueProps {
   end: number;
   decimals?: number;
@@ -88,7 +84,7 @@ function parseStatValue(value: string): { end: number; suffix: string; decimals:
 
 const statIcons = [TrendingUp, Sparkles, Star];
 
-export default function Hero({ onBookCallClick }: HeroProps) {
+export default function Hero() {
   const wd = typeof window !== 'undefined' ? window.wpData : undefined;
   const themeUri = wd?.themeUri ?? '';
   const heroBgPath = themeUri ? `${themeUri}/assets/images/brandjo_hero_bg_1779378368447.png` : "/src/assets/images/brandjo_hero_bg_1779378368447.png";
@@ -101,6 +97,7 @@ export default function Hero({ onBookCallClick }: HeroProps) {
   const ctaSecondary= hero?.ctaSecondary ?? 'View Projects';
   const scrollText  = hero?.scrollText  ?? 'DISCOVER THE MOVEMENT';
   const bs = typeof window !== 'undefined' ? window.wpData?.buttonSettings : undefined;
+  const ctaPrimaryUrl = bs?.heroCtaPrimaryUrl || '#';
   const ctaSecondaryUrl = bs?.heroCtaSecondaryUrl || '#projects';
   const scrollUrl = bs?.heroScrollUrl || '#video-reel';
   const stats       = hero?.stats ?? [
@@ -167,14 +164,13 @@ export default function Hero({ onBookCallClick }: HeroProps) {
 
         {/* CTA Actions */}
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <button
-            type="button"
-            onClick={() => onBookCallClick?.()}
+          <a
+            href={ctaPrimaryUrl}
             className="w-full sm:w-auto px-8 py-4 bg-brand-purple hover:bg-brand-purple/90 text-white font-semibold text-base rounded-xl transition-all shadow-lg shadow-brand-purple/30 hover:shadow-brand-purple/60 hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
           >
             {ctaPrimary}
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
           
           <a
             href={ctaSecondaryUrl}

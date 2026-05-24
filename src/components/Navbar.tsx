@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-interface NavbarProps {
-  onBookCallClick?: () => void;
-}
-
-export default function Navbar({ onBookCallClick }: NavbarProps) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,6 +19,7 @@ export default function Navbar({ onBookCallClick }: NavbarProps) {
   }, []);
 
   const bookCallText = (typeof window !== 'undefined' && window.wpData?.buttonSettings?.navbarBookCallText) || 'Book a Call';
+  const bookCallUrl = (typeof window !== 'undefined' && window.wpData?.buttonSettings?.navbarBookCallUrl) || '#contact';
 
   const navLinks = (typeof window !== 'undefined' && window.wpData?.navLinks) || [
     { name: "Home", href: "#home" },
@@ -73,14 +70,13 @@ export default function Navbar({ onBookCallClick }: NavbarProps) {
 
             {/* CTA BUTTON */}
             <div className="hidden md:flex items-center gap-4">
-              <button
-                type="button"
-                onClick={() => onBookCallClick?.()}
+              <a
+                href={bookCallUrl}
                 className="w-full sm:w-auto px-5 py-2 bg-brand-purple hover:bg-brand-purple/90 text-white font-semibold text-sm rounded-xl transition-all shadow-lg shadow-brand-purple/30 hover:shadow-brand-purple/60 hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
               >
                 {bookCallText}
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
 
             {/* MOBILE TOGGLE */}
@@ -114,17 +110,14 @@ export default function Navbar({ onBookCallClick }: NavbarProps) {
                   </a>
                 ))}
               </nav>
-              <button
-                type="button"
-                onClick={() => {
-                  onBookCallClick?.();
-                  setIsMobileMenuOpen(false);
-                }}
+              <a
+                href={bookCallUrl}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full max-w-[200px] py-2.5 px-4 rounded-lg bg-brand-purple hover:bg-brand-purple/90 text-white font-medium text-sm transition-all text-center flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-brand-purple/30 hover:shadow-brand-purple/60 hover:-translate-y-0.5"
               >
                 <Sparkles className="w-4 h-4" />
                 {bookCallText}
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

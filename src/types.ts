@@ -13,7 +13,7 @@ export interface Project {
   client: string;
   metrics: string;
   description: string;
-  imagePath: string;
+  imagePath?: string;
   videoFile?: string;
   videoId?: string;
 }
@@ -31,7 +31,7 @@ export interface PricingTier {
   id: string;
   name: string;
   price: string;
-  frequency: string;
+  frequency?: string;
   description: string;
   features: string[];
   popular: boolean;
@@ -73,7 +73,6 @@ export interface WpData {
   email: string;
   studioLocation: string;
   copyright: string;
-  youtubeVideoId: string;
   socialLinks: Record<string, string>;
   navLinks: { name: string; href: string }[];
   hero: {
@@ -89,6 +88,7 @@ export interface WpData {
     manifesto: string[];
     stats: { value: string; label: string }[];
     qualityBadge: string;
+    workflow?: TimelineEvent[];
   };
   services: {
     sectionHeader: string;
@@ -102,9 +102,9 @@ export interface WpData {
     categories: string[];
     items: Project[];
   };
-  reviews: {
-    sectionHeader: string;
-    sectionTitle: string;
+  reviews?: {
+    sectionHeader?: string;
+    sectionTitle?: string;
     items: Review[];
     videoTestimonials: { client: string; role: string; duration: string; videoFile?: string; youtubeId?: string }[];
   };
@@ -124,13 +124,9 @@ export interface WpData {
     supportCta: string;
     items: FAQItem[];
   };
-  timeline: {
-    sectionHeader: string;
-    sectionTitle: string;
-    items: TimelineEvent[];
-  };
   finalCta: {
     headline: string;
+    headlineHighlight: string;
     subheadline: string;
     buttonText: string;
     limitText: string;
@@ -145,8 +141,8 @@ export interface WpData {
     youtubeId: string;
     floatingNodes: string[];
   };
-  fictionalBrands: { name: string; logo: string }[];
-  bookingForm: {
+  fictionalBrands?: { name: string; logo: string }[];
+  bookingForm?: {
     dates: { value: string; display: string }[];
     times: string[];
   };

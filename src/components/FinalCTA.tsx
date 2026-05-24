@@ -3,17 +3,16 @@ import { Sparkles, ArrowRight, Video, Target } from "lucide-react";
 import { motion } from "motion/react";
 import { Stagger, fadeUp } from "./MotionPrimitives";
 
-interface FinalCTAProps {
-  onBookCallClick?: () => void;
-}
-
-export default function FinalCTA({ onBookCallClick }: FinalCTAProps) {
+export default function FinalCTA() {
   const wd = typeof window !== 'undefined' ? window.wpData : undefined;
   const fc = wd?.finalCta;
-  const headline    = fc?.headline    ?? 'Your Brand Deserves More Attention.';
-  const subheadline = fc?.subheadline ?? 'Let\'s build content people actually remember. Stop burning resources on low-retention updates. Harness high-fidelity cinematic video engines and custom conversion matrices instead.';
-  const buttonText  = fc?.buttonText  ?? 'Book Your Strategy Call';
-  const limitText   = fc?.limitText   ?? 'LIMITED TO 4 HIGH-TIER NEW BRANDS THIS CALENDAR QUARTER';
+  const bs = wd?.buttonSettings;
+  const headline           = fc?.headline           ?? 'Your Brand Deserves';
+  const headlineHighlight  = fc?.headlineHighlight  ?? 'More Attention.';
+  const subheadline        = fc?.subheadline        ?? 'Let\'s build content people actually remember. Stop burning resources on low-retention updates. Harness high-fidelity cinematic video engines and custom conversion matrices instead.';
+  const buttonText         = fc?.buttonText         ?? 'Book Your Strategy Call';
+  const limitText          = fc?.limitText          ?? 'LIMITED TO 4 HIGH-TIER NEW BRANDS THIS CALENDAR QUARTER';
+  const buttonUrl          = bs?.finalCtaButtonUrl   || '#contact';
   return (
     <section 
       id="contact" 
@@ -44,7 +43,7 @@ export default function FinalCTA({ onBookCallClick }: FinalCTAProps) {
         {/* Closing Titles */}
         <motion.h2 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-display font-black text-white tracking-tight leading-[1.1] mb-6">
           {headline} <br className="xs:hidden" />
-          <span className="text-gradient">More Attention.</span>
+          <span className="text-gradient">{headlineHighlight}</span>
         </motion.h2>
         
         <motion.p variants={fadeUp} className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
@@ -53,14 +52,13 @@ export default function FinalCTA({ onBookCallClick }: FinalCTAProps) {
 
         {/* CTA book action trigger */}
         <motion.div variants={fadeUp} className="flex flex-col items-center justify-center gap-3">
-          <button
-            type="button"
-            onClick={() => onBookCallClick?.()}
+          <a
+            href={buttonUrl}
             className="w-full sm:w-auto px-10 py-5 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold text-base rounded-xl transition-all shadow-xl shadow-brand-purple/30 hover:shadow-brand-purple/60 hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2.5"
           >
             {buttonText}
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
           
           <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold mt-2 block font-mono">
             {limitText}

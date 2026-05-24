@@ -296,13 +296,13 @@ function brandjo_import_default_acf_data() {
             ['category' => 'Product Commercial'],
         ],
         'items' => [
-            ['id' => 'p1', 'title' => 'Never Gonna Give You Up', 'video_id' => 'dQw4w9WgXcQ', 'description' => 'High-energy music video production - color grading, rhythm cutting, and dynamic motion graphics.', 'category' => 'Fashion Brand Campaign', 'client' => 'AURA Paris', 'metrics' => '+340% Engagement Rate'],
-            ['id' => 'p2', 'title' => 'See You Again', 'video_id' => 'RgKAFK5djSk', 'description' => 'Cinematic storytelling through seamless transitions, emotional pacing, and atmospheric sound design.', 'category' => 'SaaS Launch', 'client' => 'Synthetix Labs', 'metrics' => '2.1M Views'],
-            ['id' => 'p3', 'title' => 'Shape of You', 'video_id' => 'JGwWNGJdvx8', 'description' => 'Abstract visual narrative with stylised overlays, split-screen composition, and branded title sequences.', 'category' => 'Restaurant Rebrand', 'client' => 'Vertex Systems', 'metrics' => '870K Reach'],
-            ['id' => 'p4', 'title' => 'Counting Stars', 'video_id' => 'hT_nvWreIhg', 'description' => 'Live concert footage edited into a high-impact promotional cut with multi-camera sync.', 'category' => 'Personal Brand Growth', 'client' => 'Synergy Group', 'metrics' => '1.4M Impressions'],
-            ['id' => 'p5', 'title' => 'Uptown Funk', 'video_id' => 'OPf0YbXqDm0', 'description' => 'Retro-inspired commercial edit with frame-perfect beatsync and vibrant colour LUTs.', 'category' => 'Product Commercial', 'client' => 'Nexus Agency', 'metrics' => '560K Views'],
-            ['id' => 'p6', 'title' => 'Roar', 'video_id' => 'CevxZvSJLk8', 'description' => 'Brand empowerment reel combining slow-motion hero shots with typographic kinetic text.', 'category' => 'Fashion Brand Campaign', 'client' => 'Brandjo Media', 'metrics' => '920K Reach'],
-            ['id' => 'p7', 'title' => 'Shake It Off', 'video_id' => 'HP-MbfHFUqs', 'description' => 'Fast-paced social cut designed for vertical platforms - quick jumps, overlay stickers, and bold captions.', 'category' => 'SaaS Launch', 'client' => 'Brandjo Media', 'metrics' => '1.8M Impressions'],
+            ['id' => 'p1', 'title' => 'Never Gonna Give You Up', 'video_url' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', 'description' => 'High-energy music video production - color grading, rhythm cutting, and dynamic motion graphics.', 'category' => 'Fashion Brand Campaign', 'client' => 'AURA Paris', 'metrics' => '+340% Engagement Rate'],
+            ['id' => 'p2', 'title' => 'See You Again', 'video_url' => 'https://www.youtube.com/watch?v=RgKAFK5djSk', 'description' => 'Cinematic storytelling through seamless transitions, emotional pacing, and atmospheric sound design.', 'category' => 'SaaS Launch', 'client' => 'Synthetix Labs', 'metrics' => '2.1M Views'],
+            ['id' => 'p3', 'title' => 'Shape of You', 'video_url' => 'https://www.youtube.com/watch?v=JGwWNGJdvx8', 'description' => 'Abstract visual narrative with stylised overlays, split-screen composition, and branded title sequences.', 'category' => 'Restaurant Rebrand', 'client' => 'Vertex Systems', 'metrics' => '870K Reach'],
+            ['id' => 'p4', 'title' => 'Counting Stars', 'video_url' => 'https://www.youtube.com/watch?v=hT_nvWreIhg', 'description' => 'Live concert footage edited into a high-impact promotional cut with multi-camera sync.', 'category' => 'Personal Brand Growth', 'client' => 'Synergy Group', 'metrics' => '1.4M Impressions'],
+            ['id' => 'p5', 'title' => 'Uptown Funk', 'video_url' => 'https://www.youtube.com/watch?v=OPf0YbXqDm0', 'description' => 'Retro-inspired commercial edit with frame-perfect beatsync and vibrant colour LUTs.', 'category' => 'Product Commercial', 'client' => 'Nexus Agency', 'metrics' => '560K Views'],
+            ['id' => 'p6', 'title' => 'Roar', 'video_url' => 'https://www.youtube.com/watch?v=CevxZvSJLk8', 'description' => 'Brand empowerment reel combining slow-motion hero shots with typographic kinetic text.', 'category' => 'Fashion Brand Campaign', 'client' => 'Brandjo Media', 'metrics' => '920K Reach'],
+            ['id' => 'p7', 'title' => 'Shake It Off', 'video_url' => 'https://www.youtube.com/watch?v=HP-MbfHFUqs', 'description' => 'Fast-paced social cut designed for vertical platforms - quick jumps, overlay stickers, and bold captions.', 'category' => 'SaaS Launch', 'client' => 'Brandjo Media', 'metrics' => '1.8M Impressions'],
         ],
     ], 'option');
 
@@ -343,11 +343,11 @@ function brandjo_import_default_acf_data() {
             ],
         ],
         'video_testimonials' => [
-            ['client' => 'Synthetix Labs', 'role' => 'Founder video testimonial', 'duration' => '00:48', 'youtube_id' => 'dQw4w9WgXcQ'],
-            ['client' => 'Aura Paris', 'role' => 'Campaign result testimonial', 'duration' => '01:12', 'youtube_id' => 'RgKAFK5djSk'],
-            ['client' => 'Synergy Group', 'role' => 'Growth partner testimonial', 'duration' => '00:56', 'youtube_id' => 'JGwWNGJdvx8'],
-            ['client' => 'Vertex Systems', 'role' => 'Launch authority testimonial', 'duration' => '01:05', 'youtube_id' => 'hT_nvWreIhg'],
-            ['client' => 'Nexus Agency', 'role' => 'Creative director testimonial', 'duration' => '00:52', 'youtube_id' => 'OPf0YbXqDm0'],
+            ['client' => 'Synthetix Labs', 'role' => 'Founder video testimonial', 'duration' => '00:48', 'youtube_url' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'],
+            ['client' => 'Aura Paris', 'role' => 'Campaign result testimonial', 'duration' => '01:12', 'youtube_url' => 'https://www.youtube.com/watch?v=RgKAFK5djSk'],
+            ['client' => 'Synergy Group', 'role' => 'Growth partner testimonial', 'duration' => '00:56', 'youtube_url' => 'https://www.youtube.com/watch?v=JGwWNGJdvx8'],
+            ['client' => 'Vertex Systems', 'role' => 'Launch authority testimonial', 'duration' => '01:05', 'youtube_url' => 'https://www.youtube.com/watch?v=hT_nvWreIhg'],
+            ['client' => 'Nexus Agency', 'role' => 'Creative director testimonial', 'duration' => '00:52', 'youtube_url' => 'https://www.youtube.com/watch?v=OPf0YbXqDm0'],
         ],
     ], 'option');
 
@@ -474,7 +474,8 @@ function brandjo_import_default_acf_data() {
 
     // -- Final CTA --
     update_field('final_cta', [
-        'headline' => 'Your Brand Deserves More Attention.',
+        'headline' => 'Your Brand Deserves',
+        'headline_highlight' => 'More Attention.',
         'subheadline' => 'Let\'s build content people actually remember. Stop burning resources on low-retention updates. Harness high-fidelity cinematic video engines and custom conversion matrices instead.',
         'button_text' => 'Book Your Strategy Call',
         'limit_text' => 'LIMITED TO 4 HIGH-TIER NEW BRANDS THIS CALENDAR QUARTER',
@@ -508,6 +509,15 @@ function brandjo_import_default_acf_data() {
 
     // Mark import as done
     update_option('brandjo_acf_imported', true);
+}
+
+// ============================================================
+// 5.75. YOUTUBE URL PARSER
+// ============================================================
+function brandjo_parse_youtube_id($url) {
+    if (empty($url)) return '';
+    preg_match('/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/', $url, $matches);
+    return !empty($matches[1]) ? $matches[1] : '';
 }
 
 // ============================================================
@@ -691,7 +701,7 @@ function brandjo_get_wp_data_json() {
                     'id' => $p['id'] ?? '',
                     'title' => $p['title'] ?? '',
                     'videoFile' => $videoFile ?: '',
-                    'videoId' => $p['video_id'] ?? 'dQw4w9WgXcQ',
+                    'videoId' => brandjo_parse_youtube_id($p['video_url'] ?? '') ?: 'dQw4w9WgXcQ',
                     'description' => $p['description'] ?? '',
                     'category' => $p['category'] ?? '',
                     'client' => $p['client'] ?? '',
@@ -734,7 +744,7 @@ function brandjo_get_wp_data_json() {
                     'role' => $v['role'] ?? '',
                     'duration' => $v['duration'] ?? '00:00',
                     'videoFile' => $videoFile ?: '',
-                    'youtubeId' => $v['youtube_id'] ?? 'dQw4w9WgXcQ',
+                    'youtubeId' => brandjo_parse_youtube_id($v['youtube_url'] ?? '') ?: 'dQw4w9WgXcQ',
                 ];
             }
         }
@@ -812,7 +822,8 @@ function brandjo_get_wp_data_json() {
     $finalCta = get_field('final_cta', 'option');
     if (!empty($finalCta)) {
         $data['finalCta'] = [
-            'headline' => $finalCta['headline'] ?? 'Your Brand Deserves More Attention.',
+            'headline' => $finalCta['headline'] ?? 'Your Brand Deserves',
+            'headlineHighlight' => $finalCta['headline_highlight'] ?? 'More Attention.',
             'subheadline' => $finalCta['subheadline'] ?? '',
             'buttonText' => $finalCta['button_text'] ?? 'Book Your Strategy Call',
             'limitText' => $finalCta['limit_text'] ?? 'LIMITED TO 4 HIGH-TIER NEW BRANDS THIS CALENDAR QUARTER',
@@ -824,14 +835,7 @@ function brandjo_get_wp_data_json() {
     // -- Intro Video --
     $introVideo = get_field('intro_video', 'option');
     if (!empty($introVideo)) {
-        $youtubeUrl = $introVideo['youtube_url'] ?? '';
-        $youtubeId = '';
-        if ($youtubeUrl) {
-            preg_match('/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/', $youtubeUrl, $matches);
-            if (!empty($matches[1])) {
-                $youtubeId = $matches[1];
-            }
-        }
+        $youtubeId = brandjo_parse_youtube_id($introVideo['youtube_url'] ?? '');
         $videoFile = $introVideo['video_file'] ?? '';
         $data['introVideo'] = [
             'sectionHeader' => $introVideo['section_header'] ?? 'EXECUTIVE BRIEF',
